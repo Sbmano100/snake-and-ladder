@@ -1,0 +1,20 @@
+ <!-- <div class="container d-flex justify-content-center p-3 my-3">
+  <div class="row" *ngFor="let row of arr">
+    <div class="col-sm-1" style="background-color:lavender;" *ngFor="let item of row">{{item}}</div>
+  </div> 
+</div> -->
+
+  <div class="container d-flex justify-content-center p-5 my-3">
+    <app-player1 (emitter1)="p1=$event"></app-player1>
+    <table class="table table-striped center">
+      <tr *ngFor="let row of arr">
+        <td *ngFor="let item of row">
+              <div class="col-sm-12 text-center"  [class.pos1]="p1pos(item)" [class.pos2]="p2pos(item)">{{item}}</div>
+        </td>
+      </tr>
+    </table>
+    <app-player2 (emitter2)="p2=$event"></app-player2>
+    <!-- //class="col-sm-12 text-center" -->
+    <!-- [class.pos1]="p1pos(item)" [class.pos2]="p2pos(item)" -->
+    </div>
+   
