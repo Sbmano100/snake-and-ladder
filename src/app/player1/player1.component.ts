@@ -1,13 +1,17 @@
 import { Component,EventEmitter,Output,Input, OnInit } from '@angular/core';
 import { SharedService } from '../shared.service';
 
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-player1',
   templateUrl: './player1.component.html',
   styleUrls: ['./player1.component.css']
 })
 export class Player1Component implements OnInit {
-  constructor(private shareserv:SharedService){}
+  // siteurl=window.location.href;
+  constructor(private shareserv:SharedService,public _router: Router, public _location: Location){}
    pi : number = 9;
    pj : number = 0;
    row : number =1;
@@ -20,6 +24,7 @@ export class Player1Component implements OnInit {
    isshowing:boolean=false;
   //  @Input() disabled!:boolean;
   //  @Output() click=new EventEmitter();
+
    @Output() emitter1=new EventEmitter<any[]>();
   onclick(){
     //this.isshowing=!this.isshowing;
@@ -37,8 +42,15 @@ export class Player1Component implements OnInit {
     this.emitter1.emit([this.pi,this.pj]);
     this.shareserv.bool(false);
     this.isshowing=true;
-    if(this.points==100)
-    this.win=true;
+    if(this.points==100){
+      this.win=true;
+      this.pi=9;
+      this.pj=0;
+      this.row=1;
+      this.points=1;
+      this.value=0;
+      setTimeout(() => this.refresh(), 4000);
+    }
     //this.randomnumber=0;
     //this.click.emit();
   }
@@ -52,4 +64,15 @@ export class Player1Component implements OnInit {
   this.emitter1.emit([this.pi,this.pj]);
 }
 
+
+  // refresh(): void {
+  //   this._router.navigateByUrl("/refresh", { skipLocationChange: true }).then(() => {
+  //     console.log(decodeURI(this._location.path()));
+  //     this._router.navigate([decodeURI(this._location.path())]);
+  //   });
+  // }
+  refresh(){
+    alert("New Game Loading...");
+    window.location.reload();
+  }
 }

@@ -1,16 +1,28 @@
-<h2>Snake and Ladder Game</h2>
-<div class=" container justify-content-center p-5 my-3">
-  <app-player1 (emitter1)="p1=$event"></app-player1>
-    <table class="table table-striped center">
+
+<div class="container d-flex flex-row align-self-center justify-content-center pt-5">
+  <div class="align-self-center p-1" style="background-color:rgb(105, 128, 0);margin-right: 15px;color: rgb(19, 1, 1);"><h1>Snake <br>and <br>Ladder Game</h1></div>
+<div>
+    <table class="table">
       <tr *ngFor="let row of arr">
         <td *ngFor="let item of row" [class.red]="snackcheck(item)" [class.green]="laddercheck(item)">
-              <div class=" text-center" [class.pos1]="p1pos(item)" [class.pos2]="p2pos(item)" [class.samepos]="samepos(item)">{{item}}</div>
+              <div  class=" text-center" [class.pos1]="p1pos(item)" [class.pos2]="p2pos(item)" [class.samepos]="samepos(item)">{{item}}</div>    
         </td>
+        
       </tr>
+      
     </table>
     
     <!-- //class="col-sm-12 text-center" -->
     <!-- [class.pos1]="p1pos(item)" [class.pos2]="p2pos(item)" -->
-    <app-player2 (emitter2)="p2=$event"></app-player2>
+    
 </div>
+<div class="align-self-center">
+<div class="d-flex flex-column">
+  <div class="p-5"><app-player1 (emitter1)="p1=$event"></app-player1></div>
+  <hr >
+   <div class="p-5"><app-player2 (emitter2)="p2=$event"></app-player2></div>
+</div>
+</div>
+</div>
+
    

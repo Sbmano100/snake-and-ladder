@@ -21,6 +21,13 @@ export class SharedService {
   onfun(pi : number,pj : number,rd: number,row: number,counter: number){
     this.r=row;
     this.points=counter;
+    if(this.points+rd>100){
+      this.pi=pi;
+      this.pj=pj;
+      this.r=row;
+      this.points=counter;
+      return;
+    }
     for (let i = 0; i < rd; i++) {
       if(this.r%2!=0 && pj<=this.b){
         pj=pj+1;

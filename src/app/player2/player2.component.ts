@@ -15,6 +15,7 @@ export class Player2Component {
    points : number =1;
   value: number=0;
   isshowing:boolean=false;
+  win:boolean=false;
   //isshowing=true;
   // @Input() disabled!:boolean;
   //@Output() click=new EventEmitter();
@@ -35,6 +36,16 @@ export class Player2Component {
     this.emitter2.emit([this.pi,this.pj]);
     this.shareserv.bool(false);
     this.isshowing=true;
+    if(this.points==100){
+      this.win=true;
+      this.pi=9;
+      this.pj=0;
+      this.row=1;
+      this.points=1;
+      this.value=0;
+      setTimeout(() => this.refresh(), 4000);
+      //this.refresh();
+    }
     //this.click.emit();
   }
   handleclick(){
@@ -50,4 +61,8 @@ this.emitter2.emit([this.pi,this.pj]);
 //     this.isshowing=false;
 //       //this.shareserv.p2play(false);
 // }
+refresh(){
+  alert("New Game Loading...");
+  window.location.reload();
+}
 }

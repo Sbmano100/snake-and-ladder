@@ -1,7 +1,7 @@
-<div class="me-5">
-    <h6>Player1</h6>
-    <button class="btn" style="background-color:rgb(128, 0, 90);" (click)="onclick()" [disabled]="handleclick()">Play</button>
-    <p class="mt-1">Score:{{points}}</p>
-    <p class="mt-1">Value:{{value}}</p>
-    <p class="mt-1" *ngIf="win">Player 1 Wins</p>
+<div>
+    <h6>Player2</h6>
+    <p>Score:{{points}}</p>
+    <p>Value:{{value}}</p>
+    <button class="btn" style="background-color: rgb(128, 0, 90);" (click)="onclick()" [disabled]="handleclick()">Play</button>
+    <p *ngIf="win">Player 1 Wins</p>
 </div>
