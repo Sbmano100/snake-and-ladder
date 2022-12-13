@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable,EventEmitter } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,12 @@ export class SharedService {
    pj !:number;
    points !:  number;
    disabled:boolean=true;
+    snakehi : number = 2;
+    snakehj : number = 4;
+    ladderi : number = 7;
+    ladderj : number = 2;
+    
+   message=new EventEmitter<boolean>();
   onfun(pi : number,pj : number,rd: number,row: number,counter: number){
     this.r=row;
     this.points=counter;
@@ -48,9 +54,24 @@ export class SharedService {
       console.log(pi);
       console.log(pj);
     }
+      if(this.pi == this.ladderi && this.pj == this.ladderj){
+        this.pi=3;
+        this.pj=6;
+        this.points=67;
+        console.log("Ladderrr")
+      }
+      if(this.pi == this.snakehi && this.pj == this.snakehj){
+        this.pi=5;
+        this.pj=1;
+        this.r=this.r-1;
+        this.points=42;
+        console.log("snakeee")
+      }
   }
+bool(data:boolean){
+  this.message.emit(data);
+}
 
-  
   // p1play(){
   //   this.disabled=false;
   // }

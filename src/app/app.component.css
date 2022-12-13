@@ -6,3 +6,65 @@
 .pos2{
     background-color: blue;
 }
+
+table  {
+    width: 20%;
+    border: 1px solid black;
+  }
+h2{
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: oblique;
+}
+td{
+    border: 1px solid black;
+}
+.centeralign{
+    margin-left: auto;
+    margin-right: auto;
+}
+.align-value{
+    margin-left: 79px;
+}
+.red{
+    background-color: red;
+    /* width: 40px; */
+
+}
+.green{
+    background-color: green;
+}
+.samepos{
+    background-color: darksalmon;
+    border-radius: 80px;
+}
+.pos1{
+    background-color: rgb(128, 0, 90);
+    border-radius: 80px;
+}
+.pos2{
+    background-color:rgb(0, 26, 255);
+    border-radius: 80px;
+}
+.align-player{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 60px;
+    margin-left: 60px;  
+}
+.align-player1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 60px;
+    margin-right: 60px;  
+}
+
+/* table,th,td {
+    border: 1px solid black;
+  } */
+  th, td {
+
+    padding: 7px;
+    background-color: rgb(197, 168, 36);
+  }
+  .container{
+    display: flex;
+  }

@@ -12,6 +12,7 @@ export class AppComponent implements OnInit{
   title = 'snakeladder';
   p1!:any[]
   p2!:any[]
+  same:boolean=false;
   //initial=true;
   constructor() {}
   ngOnInit(){
@@ -65,5 +66,26 @@ let num=100;
  }
  return false;
  }
-   
+
+ snackcheck(st : number){
+  if(st== 76 || st ==42){
+    return true;
+  }
+  return false;
+}
+
+laddercheck(lt : number){
+  if(lt == 23 || lt == 67){
+    return true;
+  }
+  return false;
+}
+  samepos(a:number){
+    if((a==this.arr[this.p1[0]][this.p1[1]]) && (a==this.arr[this.p2[0]][this.p2[1]])){
+    return true;
+    }
+    else
+    return false;
+   }
+
 }

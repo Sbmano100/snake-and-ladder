@@ -12,8 +12,9 @@ export class Player2Component {
    pi : number = 9;
    pj : number = 0;
    row : number =1;
-   points : number =0;
+   points : number =1;
   value: number=0;
+  isshowing:boolean=false;
   //isshowing=true;
   // @Input() disabled!:boolean;
   //@Output() click=new EventEmitter();
@@ -32,8 +33,19 @@ export class Player2Component {
     console.log(this.pi)
     console.log(this.pj)
     this.emitter2.emit([this.pi,this.pj]);
+    this.shareserv.bool(false);
+    this.isshowing=true;
     //this.click.emit();
   }
+  handleclick(){
+    return this.isshowing;
+}
+ngOnInit(){
+this.shareserv.message.subscribe((data)=>{
+  this.isshowing=data;
+})
+this.emitter2.emit([this.pi,this.pj]);
+}
 //   handleclick(){
 //     this.isshowing=false;
 //       //this.shareserv.p2play(false);

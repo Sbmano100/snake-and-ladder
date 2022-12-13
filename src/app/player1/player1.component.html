@@ -1,6 +1,7 @@
-<div class="me-3">
+<div class="me-5">
     <h6>Player1</h6>
-    <button class="btn btn-success" (click)="onclick()">Play</button>
+    <button class="btn" style="background-color:rgb(128, 0, 90);" (click)="onclick()" [disabled]="handleclick()">Play</button>
     <p class="mt-1">Score:{{points}}</p>
     <p class="mt-1">Value:{{value}}</p>
+    <p class="mt-1" *ngIf="win">Player 1 Wins</p>
 </div>

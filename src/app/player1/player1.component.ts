@@ -1,4 +1,4 @@
-import { Component,EventEmitter,Output,Input } from '@angular/core';
+import { Component,EventEmitter,Output,Input, OnInit } from '@angular/core';
 import { SharedService } from '../shared.service';
 
 @Component({
@@ -6,26 +6,27 @@ import { SharedService } from '../shared.service';
   templateUrl: './player1.component.html',
   styleUrls: ['./player1.component.css']
 })
-export class Player1Component {
+export class Player1Component implements OnInit {
   constructor(private shareserv:SharedService){}
    pi : number = 9;
    pj : number = 0;
    row : number =1;
-   points : number =0;
+   points : number =1;
    value: number=0;
-   randomnumber:number=0
-   //isshowing:boolean=false;
+   winning : String='';
+   value_message : string='';
+   win:boolean=false;
+   //randomnumber:number=0
+   isshowing:boolean=false;
   //  @Input() disabled!:boolean;
   //  @Output() click=new EventEmitter();
    @Output() emitter1=new EventEmitter<any[]>();
   onclick(){
     //this.isshowing=!this.isshowing;
-    while(this.randomnumber == 0){
-      this.randomnumber=Math.floor(Math.random() * 6);
-    }
-  this.value=this.randomnumber;
-  console.log("Random Number : "+this.randomnumber);
-  this.shareserv.onfun(this.pi,this.pj,this.randomnumber,this.row,this.points)
+   var randomnumber=Math.floor(Math.random() * 6)+1;
+  this.value=randomnumber;
+  console.log("Random Number : "+randomnumber);
+  this.shareserv.onfun(this.pi,this.pj,randomnumber,this.row,this.points)
        this.pi=this.shareserv.pi;
        this.pj=this.shareserv.pj;
        this.row=this.shareserv.r;
@@ -34,11 +35,21 @@ export class Player1Component {
     console.log(this.pi)
     console.log(this.pj)
     this.emitter1.emit([this.pi,this.pj]);
-    this.randomnumber=0;
+    this.shareserv.bool(false);
+    this.isshowing=true;
+    if(this.points==100)
+    this.win=true;
+    //this.randomnumber=0;
     //this.click.emit();
   }
-//   handleclick(){
-//     this.isshowing=true;
-//       //this.shareserv.p2play(false);
-// }
+    handleclick(){
+      return this.isshowing;
+ }
+ ngOnInit(){
+  this.shareserv.message.subscribe((data)=>{
+    this.isshowing=data;
+  })
+  this.emitter1.emit([this.pi,this.pj]);
+}
+
 }
