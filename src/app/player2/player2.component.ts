@@ -38,12 +38,7 @@ export class Player2Component {
     this.isshowing=true;
     if(this.points==100){
       this.win=true;
-      this.pi=9;
-      this.pj=0;
-      this.row=1;
-      this.points=1;
-      this.value=0;
-      setTimeout(() => this.refresh(), 4000);
+      setTimeout(() => this.refresh(), 1000);
       //this.refresh();
     }
     //this.click.emit();
@@ -62,7 +57,7 @@ this.emitter2.emit([this.pi,this.pj]);
 //       //this.shareserv.p2play(false);
 // }
 refresh(){
-  alert("New Game Loading...");
+  alert("Click Ok to Begin New Game");
   window.location.reload();
 }
 }
